@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		E55BD9BE21D5267900CFF812 /* graphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BD9BD21D5267900CFF812 /* graphTests.swift */; };
+		E55BD9BE21D5267900CFF812 /* directedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BD9BD21D5267900CFF812 /* directedGraphTests.swift */; };
 		E571B97321D50E94004D644F /* undirectedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* undirectedGraphTests.swift */; };
 		E5E249B821D4F4FD00E32260 /* undirectedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E249B721D4F4FD00E32260 /* undirectedGraph.swift */; };
 		E5E249BA21D4F50400E32260 /* directedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E249B921D4F50400E32260 /* directedGraph.swift */; };
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E55BD9BD21D5267900CFF812 /* graphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphTests.swift; sourceTree = "<group>"; };
+		E55BD9BD21D5267900CFF812 /* directedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = directedGraphTests.swift; sourceTree = "<group>"; };
 		E5E249B721D4F4FD00E32260 /* undirectedGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = undirectedGraph.swift; sourceTree = "<group>"; };
 		E5E249B921D4F50400E32260 /* directedGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = directedGraph.swift; sourceTree = "<group>"; };
 		E5E249BB21D4F65200E32260 /* graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				OBJ_12 /* XCTestManifests.swift */,
 				OBJ_13 /* undirectedGraphTests.swift */,
-				E55BD9BD21D5267900CFF812 /* graphTests.swift */,
+				E55BD9BD21D5267900CFF812 /* directedGraphTests.swift */,
 			);
 			name = graphTests;
 			path = Tests/graphTests;
@@ -219,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				E55BD9BE21D5267900CFF812 /* graphTests.swift in Sources */,
+				E55BD9BE21D5267900CFF812 /* directedGraphTests.swift in Sources */,
 				E5E249BA21D4F50400E32260 /* directedGraph.swift in Sources */,
 				E5E249BC21D4F65200E32260 /* graph.swift in Sources */,
 				E5E249B821D4F4FD00E32260 /* undirectedGraph.swift in Sources */,

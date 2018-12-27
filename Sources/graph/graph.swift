@@ -32,6 +32,7 @@ enum CustomError : Error {
     case NotImplementedError
 }
 extension Graph {
+    
     func bfs() throws -> Array<Vertex> {
         throw CustomError.NotImplementedError
     }
