@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Collections",
+        "repositoryURL": "https://github.com/olaven/Collections",
+        "state": {
+          "branch": null,
+          "revision": "15779b7da1587f3dc21ddf114fd2905ef8d28b8c",
+          "version": "0.1.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

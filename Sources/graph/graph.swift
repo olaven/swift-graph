@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Collections
 
 protocol Graph {
     associatedtype Vertex : Hashable
@@ -33,8 +34,51 @@ enum CustomError : Error {
 }
 extension Graph {
     
-    func bfs() throws -> Array<Vertex> {
-        throw CustomError.NotImplementedError
+    func bfs(from start: Vertex, to end: Vertex) -> Array<Vertex>? {
+        let queue = Queue<Vertex>()
+        var bestParent = [Vertex: Vertex]()
+        
+        queue.enqueue(value: start)
+        
+        outer: while(queue.count > 0) {
+            let vertex = queue.dequeue()!
+            
+            for adjacent in adjacents(to: vertex) {
+                if (bestParent[adjacent] != nil || adjacent == start) {
+                    continue
+                }
+                
+                bestParent[adjacent] = vertex
+                
+                if (adjacent == end) {
+                    break outer
+                }
+                
+                queue.enqueue(value: adjacent)
+            }
+        }
+        
+        if (bestParent[end] == nil) {
+            return nil
+        }
+        
+        var path = Array<Vertex>()
+        
+        var vertex = bestParent[end]
+        path.insert(end, at: 0)
+        
+        while vertex != nil{
+            path.insert(vertex!, at: 0)
+            
+            if bestParent[vertex!] == nil {
+                break
+            } else {
+                vertex = bestParent[vertex!]
+            }
+        }
+    
+        
+        return path
     }
     
     func dfs() throws -> Array<Vertex> {
