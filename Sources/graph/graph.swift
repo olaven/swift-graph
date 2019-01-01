@@ -81,7 +81,54 @@ extension Graph {
         return path
     }
     
-    func dfs() throws -> Array<Vertex> {
-        throw CustomError.NotImplementedError
+    func dfs(from start: Vertex, to end: Vertex) -> Array<Vertex>? {
+        var stack = Stack<Vertex>()
+        var visited = Set<Vertex>()
+        
+        (stack, visited) = dfs(from: start, to: end, stack: stack, visited: visited)
+        
+        guard stack.peek() == end else {
+            return nil
+        }
+        
+        var path = [Vertex]()
+        var current = stack.pop()
+        
+        while current != nil {
+            path.insert(current!, at: 0)
+            current = stack.pop()
+        }
+        
+        return path
+    }
+    
+    private func dfs(from current: Vertex, to end: Vertex, stack: Stack<Vertex>, visited: Set<Vertex>) -> (Stack<Vertex>, Set<Vertex>) {
+        
+        // mutable copies of aruments
+        var visited = visited
+        var stack = stack
+        
+        stack.push(value: current)
+        visited.insert(current)
+        
+        if current == end {
+            return (stack, visited)
+        }
+        
+        for adjacent in adjacents(to: current) {
+            if visited.contains(adjacent) {
+                continue
+            }
+            
+            (stack, visited) = dfs(from: adjacent, to: end, stack: stack, visited: visited)
+            
+            if stack.peek() != end {
+                let _ = stack.pop()
+            }
+        }
+        
+        return (stack, visited)
     }
 }
+
+

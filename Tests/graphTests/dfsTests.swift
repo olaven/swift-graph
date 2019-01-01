@@ -1,5 +1,6 @@
 //
-//  bfsTests.swift
+//  dfsTests.swift
+//  Collections
 //
 //  Created by Olav on 01/01/2019.
 //
@@ -7,7 +8,7 @@
 import XCTest
 @testable import graph
 
-final class bfsTests: XCTestCase {
+final class dfsTests: XCTestCase {
     
     var graph : UndirectedGraph<Int> = UndirectedGraph<Int>()
     
@@ -15,37 +16,43 @@ final class bfsTests: XCTestCase {
         graph = buildGraph()
     }
     
-    func testBFSReturnsAPath() {
-        let path = graph.bfs(from: 1, to: 2)
+    func testDFSReturnsAPath() {
+        let path = graph.dfs(from: 1, to: 2)
         XCTAssertNotNil(path)
     }
     
-    func testBFSReturnsValidPath() {
-        let path = graph.bfs(from: 1, to: 2)
+    func testDFSReturnsValidPath() {
+        let path = graph.dfs(from: 1, to: 2)
         
         if let last = path?.last {
             XCTAssertEqual(last, 2)
         }
     }
     
-    func testShortestPathIsChosen() {
-        for _ in 1...10 {
-            let path = graph.bfs(from: 2, to: 6)
-            
-            XCTAssertEqual(path?.count, 3) // not 4
+    func testAnotherPath() {
+        let path = graph.dfs(from: 1, to: 6)
+        
+        if let last = path?.last {
+            XCTAssertEqual(last, 6)
         }
+        
+        if let first = path?.first {
+            XCTAssertEqual(first, 1)
+        }
+        
+        
     }
     
     private func buildGraph() -> UndirectedGraph<Int> {
         
         /*
-            *
-            |
+         *
+         |
          1--2--3--4
          |  |  |  |
          5--|  |--6      7--8
          
-        */
+         */
         let graph = UndirectedGraph<Int>()
         
         graph.add_edge(from: 1, to: 2)
@@ -64,8 +71,4 @@ final class bfsTests: XCTestCase {
         
         return graph
     }
-    
-    static var allTests = [
-        ("testBFSReturnsAPath", testBFSReturnsAPath)
-    ]
 }
